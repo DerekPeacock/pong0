@@ -17,6 +17,12 @@ paddle_height = 80
 velocity = 5
 playing = True
 
+isJumping = False
+jumpCount = 10
+
+def movePaddle():
+    return
+
 # Main Game Loop
 
 while playing:
@@ -37,12 +43,30 @@ while playing:
         paddle_x < screenWidth - paddle_width - velocity):
         paddle_x += velocity
 
-    if keys[pygame.K_UP] and paddle_y > velocity:
-        paddle_y -= velocity
-    
-    if (keys[pygame.K_DOWN] and paddle_y < 
-        screenHeight - paddle_height - velocity):
-        paddle_y += velocity
+    if not(isJumping):
+
+        if keys[pygame.K_UP] and paddle_y > velocity:
+            paddle_y -= velocity
+        
+        if (keys[pygame.K_DOWN] and paddle_y < 
+            screenHeight - paddle_height - velocity):
+            paddle_y += velocity
+
+        if (keys[pygame.K_SPACE]):
+            isJumping = True
+    else:
+        if jumpCount >= -10:
+            negative = 1
+            if(jumpCount < 0):
+                negative = -1
+            paddle_y -= (jumpCount ** 2) * 0.5 * negative
+            jumpCount -= 1
+        else:
+            isJumping = False
+            jumpCount = 10
+
+    movePaddle()
+
 
     # Draw Everything
 
@@ -54,4 +78,5 @@ while playing:
     pygame.display.update()
     
 pygame.quit()
+
 
