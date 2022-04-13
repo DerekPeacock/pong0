@@ -1,39 +1,50 @@
+'''
+This modules is a basic example of moving rectangular
+shapes or images around the screen.
+Author: Derek Peacock
+'''
 import pygame
 pygame.init()
 
 screenWidth = 600
-screenHeight = 400
+screenHeight = 340
 
 game_window = pygame.display.set_mode((screenWidth, screenHeight))
 pygame.display.set_caption("Derek's Pong 0")
 
+# Load the Background and Player's Character
+
+background = pygame.image.load('images/green_background_600.png')
+character = pygame.image.load('images/0_Golem_Running_002.png')
+
 # Rectangular Sprite
 
+global paddle_x
 paddle_x = 50
+
+global paddle_y
 paddle_y = 50
+
+global paddle_width
 paddle_width = 20
+
+global paddle_height
 paddle_height = 80
 
-velocity = 5
-playing = True
+global velocity; velocity = 5
+global playing; playing = True
 
+global isJumping
 isJumping = False
+
+global jumpCount
 jumpCount = 10
 
 def movePaddle():
-    return
-
-# Main Game Loop
-
-while playing:
-    pygame.time.delay(50)
-
-    # Check all the events since last time
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            playing = False
-    
+    '''
+    Move the paddle left, right, up or down with arrow keys as well
+    as jumping if the space bar is pressed.
+    '''
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_LEFT] and paddle_x > velocity:
@@ -64,19 +75,36 @@ while playing:
         else:
             isJumping = False
             jumpCount = 10
+    
+    return
 
-    movePaddle()
-
-
-    # Draw Everything
-
-    game_window.fill((0, 0, 0))
+def draw():
+    
+    game_window.blit(background, (0,0))
+    game_window.blit(character, (100,100))
 
     pygame.draw.rect(game_window, (255, 0, 0), 
         (paddle_x, paddle_y, paddle_width, paddle_height))
 
     pygame.display.update()
+
+# Main Game Loop
+
+while playing:
+    pygame.time.delay(50)
+
+    # Check all the events since last time
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            playing = False
     
+    movePaddle()
+
+    # Draw Everything
+
+    draw()
+
 pygame.quit()
 
 
