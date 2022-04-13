@@ -10,3 +10,5 @@ This game is being developed to explore Python and PyGame as a way of teaching P
 
 The game no longer runs after the functions were defined
 
+**UnboundLocalError: local variable 'isJumping' referenced before assignment**
+
