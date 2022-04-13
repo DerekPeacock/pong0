@@ -4,41 +4,9 @@ shapes or images around the screen.
 Author: Derek Peacock
 '''
 import pygame
-pygame.init()
 
-screenWidth = 600
-screenHeight = 340
-
-game_window = pygame.display.set_mode((screenWidth, screenHeight))
-pygame.display.set_caption("Derek's Pong 0")
-
-# Load the Background and Player's Character
-
-background = pygame.image.load('images/green_background_600.png')
-character = pygame.image.load('images/0_Golem_Running_002.png')
-
-# Rectangular Sprite
-
-global paddle_x
-paddle_x = 50
-
-global paddle_y
-paddle_y = 50
-
-global paddle_width
-paddle_width = 20
-
-global paddle_height
-paddle_height = 80
-
-global velocity; velocity = 5
-global playing; playing = True
-
-global isJumping
-isJumping = False
-
-global jumpCount
-jumpCount = 10
+global paddle_x, paddle_y, paddle_width, paddle_height, isJumping
+global jumpCount, velocity, playing
 
 def movePaddle():
     '''
@@ -79,7 +47,6 @@ def movePaddle():
     return
 
 def draw():
-    
     game_window.blit(background, (0,0))
     game_window.blit(character, (100,100))
 
@@ -87,6 +54,32 @@ def draw():
         (paddle_x, paddle_y, paddle_width, paddle_height))
 
     pygame.display.update()
+
+pygame.init()
+
+screenWidth = 600
+screenHeight = 340
+
+game_window = pygame.display.set_mode((screenWidth, screenHeight))
+pygame.display.set_caption("Derek's Pong 0")
+
+# Load the Background and Player's Character
+
+background = pygame.image.load('images/green_background_600.png')
+character = pygame.image.load('images/0_Golem_Running_002.png')
+
+# Rectangular Sprite
+
+paddle_x = 50
+paddle_y = 50
+paddle_width = 20
+paddle_height = 80
+
+velocity = 5
+playing = True
+
+isJumping = False
+jumpCount = 10
 
 # Main Game Loop
 
