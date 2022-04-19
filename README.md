@@ -1,4 +1,5 @@
 # PyGame: Simple example graphics game
+[Pygame Tutorial](https://www.youtube.com/watch?v=i6xMBig-pP4&list=PLzMcBGfZo4-lp3jAExUCewBfMx3UZFkh5&ab_channel=TechWithTim)
 This game is being developed to explore Python and PyGame as a way of teaching Python.  So far the game includes:-
 1. Defining a Red Rectangle
 2. Displaying the rectangle
