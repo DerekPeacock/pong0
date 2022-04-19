@@ -1,5 +1,6 @@
 # PyGame: Simple example graphics game
-[Pygame Tutorial](https://www.youtube.com/watch?v=i6xMBig-pP4&list=PLzMcBGfZo4-lp3jAExUCewBfMx3UZFkh5&ab_channel=TechWithTim)
+[Pygame Tutorial: Basic Movement & KeyPresses](https://www.youtube.com/watch?v=i6xMBig-pP4&list=PLzMcBGfZo4-lp3jAExUCewBfMx3UZFkh5&ab_channel=TechWithTim)      
+[PyGame Tutorial: Jumping and Boundaries](https://www.youtube.com/watch?v=2-DNswzCkqk&list=PLzMcBGfZo4-lp3jAExUCewBfMx3UZFkh5&index=2&ab_channel=TechWithTim)
 
 This game is being developed to explore Python and PyGame as a way of teaching Python.  So far the game includes:-
 
