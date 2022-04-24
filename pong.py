@@ -5,9 +5,6 @@ Author: Derek Peacock
 '''
 import pygame
 
-global paddle_x, paddle_y, paddle_width, paddle_height, isJumping
-global jumpCount, velocity, playing
-
 def movePaddle():
     '''
     Move the paddle left, right, up or down with arrow keys as well
@@ -22,7 +19,7 @@ def movePaddle():
         paddle_x < screenWidth - paddle_width - velocity):
         paddle_x += velocity
 
-    if not(isJumping):
+    if not isJumping:
 
         if keys[pygame.K_UP] and paddle_y > velocity:
             paddle_y -= velocity
@@ -43,7 +40,6 @@ def movePaddle():
         else:
             isJumping = False
             jumpCount = 10
-    
     return
 
 def draw():
@@ -83,6 +79,8 @@ jumpCount = 10
 
 # Main Game Loop
 
+print(__doc__)
+
 while playing:
     pygame.time.delay(50)
 
@@ -99,5 +97,3 @@ while playing:
     draw()
 
 pygame.quit()
-
-
