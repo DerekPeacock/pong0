@@ -1,18 +1,18 @@
 global isJumping
 isJumping = False
 
-def Jumping():
+def jumping():
     global isJumping 
     isJumping = True
 
 def notJumping():
     global isJumping 
-    isJumping = False
+    isJumping= False
 
 print("Testing Python Functions")
 print()
 
-Jumping()
+jumping()
 print("After Jumping(), isJumping = ", isJumping)
 
 notJumping()
