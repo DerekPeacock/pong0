@@ -1,14 +1,19 @@
-isJumping = True   
+global isJumping
+isJumping = False
+
+def Jumping():
+    global isJumping 
+    isJumping = True
+
+def notJumping():
+    global isJumping 
+    isJumping = False
 
 print("Testing Python Functions")
 print()
-print("Before function, isJumping = ", isJumping)
 
-def someFunction():
-    "This changes the global variable isJumping"
-    global isJumping
-    isJumping = False
+Jumping()
+print("After Jumping(), isJumping = ", isJumping)
 
-someFunction()
-
-print("After function, isJumping = ", isJumping)
+notJumping()
+print("After notJumping(), isJumping = ", isJumping)
