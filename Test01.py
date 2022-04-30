@@ -1,29 +1,36 @@
-global number
+global number, isJumping
 number = 5
+isJumping = True
 
 def someFunction():
     "This prints out the global variable isJumping"
-    print("Function Starts!")
 
-    global number
+    global number, isJumping
+    print()
 
-    if(number == 7):
-        print(number)
-
-    if(isJumping):
-        print("isJumping = ", isJumping)
+    if(isJumping == False):
+        print("someFunction isJumping = ", isJumping)
     
-    #isJumping = False
-    print("Number = ", number)
+    if(number == 7):
+        print("someFunction number = ", number)
 
     number = 6
+    isJumping = True
+
     return
 
 print("Testing Python Functions")
 print()
-global isJumping
-isJumping = True
+
 number = 7
-someFunction()
+isJumping = False
+
+print()
 print("Global isJumping = ", isJumping)
-print("Number = ", number)
+print("Global Number = ", number)
+
+someFunction()
+
+print()
+print("Global isJumping = ", isJumping)
+print("Global Number = ", number)
