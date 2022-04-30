@@ -47,6 +47,10 @@ def move_paddle():
 
 
 def draw():
+    '''
+    Draw the background and the characters as images.  Draw a rectangle
+    to represent the paddle.
+    '''
     game_window.blit(background, (0,0))
     game_window.blit(character, (100,100))
 
