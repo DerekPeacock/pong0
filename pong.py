@@ -4,12 +4,15 @@ shapes or images around the screen.
 Author: Derek Peacock
 '''
 import pygame
+global isJumping
 
 def movePaddle():
     '''
     Move the paddle left, right, up or down with arrow keys as well
     as jumping if the space bar is pressed.
     '''
+    global isJumping
+    
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_LEFT] and paddle_x > velocity:
@@ -73,7 +76,6 @@ paddle_height = 80
 velocity = 5
 playing = True
 
-global isJumping
 isJumping = False
 jumpCount = 10
 
