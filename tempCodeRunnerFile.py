@@ -1,2 +1,1 @@
-addle_height, isJumping
-jumpCount, velocity, playing
+jump_coun

@@ -4,45 +4,47 @@ shapes or images around the screen.
 Author: Derek Peacock
 '''
 import pygame
-global isJumping, jumpCount, paddle_x, paddle_y, paddle_height, paddle_width
+global is_jumping, jump_count, paddle_x, paddle_y, paddle_height, paddle_width
 
 
-def movePaddle():
+def move_paddle():
     '''
     Move the paddle left, right, up or down with arrow keys as well
     as jumping if the space bar is pressed.
     '''
-    global isJumping, jumpCount, paddle_x, paddle_y, paddle_height, paddle_width
-    
+    global is_jumping, jump_count, paddle_x, paddle_y, paddle_height, paddle_width
+    JUMP_HEIGHT = 8
+
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_LEFT] and paddle_x > velocity:
         paddle_x -= velocity
 
     if (keys[pygame.K_RIGHT] and 
-        paddle_x < screenWidth - paddle_width - velocity):
+        paddle_x < SCREEN_WIDTH - paddle_width - velocity):
             paddle_x += velocity
 
-    if (isJumping == False):
+    if (is_jumping == False):
 
         if keys[pygame.K_UP] and paddle_y > velocity:
             paddle_y -= velocity
         
         if (keys[pygame.K_DOWN] and paddle_y < 
-            screenHeight - paddle_height - velocity):
+            SCREEN_HEIGHT - paddle_height - velocity):
             paddle_y += velocity
 
-        if (keys[pygame.K_SPACE]): isJumping = True
+        if (keys[pygame.K_SPACE]): is_jumping = True
     else:
-        if jumpCount >= -10:
+        if jump_count >= -JUMP_HEIGHT:
             negative = 1
-            if(jumpCount < 0): negative = -1
-            paddle_y -= (jumpCount ** 2) * 0.5 * negative
-            jumpCount -= 1
+            if(jump_count < 0): negative = -1
+            paddle_y -= (jump_count ** 2) * 0.5 * negative
+            jump_count -= 1
         else:
-            isJumping = False
-            jumpCount = 10
+            is_jumping = False
+            jump_count = JUMP_HEIGHT
     return
+
 
 def draw():
     game_window.blit(background, (0,0))
@@ -54,12 +56,13 @@ def draw():
     pygame.display.update()
     return
 
+
 pygame.init()
 
-screenWidth = 600
-screenHeight = 340
+SCREEN_WIDTH = 600
+SCREEN_HEIGHT = 340
 
-game_window = pygame.display.set_mode((screenWidth, screenHeight))
+game_window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Derek's Pong 0")
 
 # Load the Background and Player's Character
@@ -77,8 +80,8 @@ paddle_height = 80
 velocity = 5
 playing = True
 
-isJumping = False
-jumpCount = 10
+is_jumping = False
+jump_count = 10
 
 # Main Game Loop
 
@@ -95,7 +98,7 @@ while playing:
     
     # Update Everything
 
-    movePaddle()
+    move_paddle()
 
     # Draw Everything
 
