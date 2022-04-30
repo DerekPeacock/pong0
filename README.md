@@ -1,4 +1,9 @@
-# PyGame: Simple example graphics game
+# Python Example Games
+
+## Python Best Practices
+[PEP 8 — the Style Guide for Python Code](https://pep8.org/)
+
+## PyGame: Simple example graphics game
 [Intalling Python and Pygame on Windows](https://www.youtube.com/watch?v=EKjALzLLgVs&t=399s&ab_channel=ProgrammingKnowledge2)      
 [Pygame Tutorial: Basic Movement & KeyPresses](https://www.youtube.com/watch?v=i6xMBig-pP4&list=PLzMcBGfZo4-lp3jAExUCewBfMx3UZFkh5&ab_channel=TechWithTim)      
 [PyGame Tutorial: Jumping and Boundaries](https://www.youtube.com/watch?v=2-DNswzCkqk&list=PLzMcBGfZo4-lp3jAExUCewBfMx3UZFkh5&index=2&ab_channel=TechWithTim)
