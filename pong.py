@@ -4,14 +4,15 @@ shapes or images around the screen.
 Author: Derek Peacock
 '''
 import pygame
-global isJumping
+global isJumping, jumpCount, paddle_x, paddle_y, paddle_height, paddle_width
+
 
 def movePaddle():
     '''
     Move the paddle left, right, up or down with arrow keys as well
     as jumping if the space bar is pressed.
     '''
-    global isJumping
+    global isJumping, jumpCount, paddle_x, paddle_y, paddle_height, paddle_width
     
     keys = pygame.key.get_pressed()
 
