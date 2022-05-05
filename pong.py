@@ -6,26 +6,26 @@ Author: Nick Day
 '''
 import pygame
 global is_jumping, jump_count, paddle_x, paddle_y, paddle_height, paddle_width
-global ball_x, ball_y, ball_width, ball_height, ball_x_velocity, ball_y_velocity
+global ball_x, ball_y, ball_width, ball_height, ball_x_direction, ball_y_direction
 BALL_VELOCITY = 5
 
 def move_ball():
-    global ball_x, ball_y, ball_height, ball_width, ball_x_velocity, ball_y_velocity
+    global ball_x, ball_y, ball_height, ball_width, ball_x_direction, ball_y_direction
 
     if(ball_y > (game_window.get_height() - ball_height)):
-        ball_y_velocity = -BALL_VELOCITY
+        ball_y_direction = -BALL_VELOCITY
 
     if(ball_x > (game_window.get_width() - ball_width)):
-        ball_x_velocity = -BALL_VELOCITY
+        ball_x_direction = -BALL_VELOCITY
 
     if(ball_y < 0):
-        ball_y_velocity = BALL_VELOCITY
+        ball_y_direction = BALL_VELOCITY
 
     if(ball_x < 0):
-        ball_x_velocity = BALL_VELOCITY
+        ball_x_direction = BALL_VELOCITY
 
-    ball_x = ball_x + ball_x_velocity
-    ball_y = ball_y + ball_y_velocity
+    ball_x = ball_x + ball_x_direction
+    ball_y = ball_y + ball_y_direction
    
 
 def move_paddle():
@@ -118,8 +118,8 @@ ball_y = 100
 ball_width = 25
 ball_height = 25
 
-ball_x_velocity = BALL_VELOCITY
-ball_y_velocity = BALL_VELOCITY
+ball_x_direction = BALL_VELOCITY
+ball_y_direction = BALL_VELOCITY
 
 
 
