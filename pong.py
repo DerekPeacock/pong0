@@ -10,6 +10,7 @@ global ball_x, ball_y, ball_width, ball_height, ball_x_direction, ball_y_directi
 BALL_VELOCITY = 5
 
 def move_ball():
+    global paddle_x, paddle_y
     global ball_x, ball_y, ball_height, ball_width, ball_x_direction, ball_y_direction
 
     if(ball_y > (game_window.get_height() - ball_height)):
@@ -22,6 +23,9 @@ def move_ball():
         ball_y_direction = BALL_VELOCITY
 
     if(ball_x < 0):
+        ball_x_direction = BALL_VELOCITY
+
+    if( abs(paddle_x - ball_x) == 0 ):
         ball_x_direction = BALL_VELOCITY
 
     ball_x = ball_x + ball_x_direction
@@ -120,8 +124,6 @@ ball_height = 25
 
 ball_x_direction = BALL_VELOCITY
 ball_y_direction = BALL_VELOCITY
-
-
 
 # Main Game Loop
 
