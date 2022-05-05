@@ -2,10 +2,17 @@
 This modules is a basic example of moving rectangular
 shapes or images around the screen.
 Author: Derek Peacock
+Author: Nick Day
 '''
 import pygame
 global is_jumping, jump_count, paddle_x, paddle_y, paddle_height, paddle_width
+global ball_x, ball_y, ball_width, ball_height, ball_velocity
 
+def move_ball():
+    global ball_x, ball_y, ball_velocity
+
+    ball_x = ball_x + ball_velocity;
+    ball_y = ball_y + ball_velocity;
 
 def move_paddle():
     '''
@@ -57,6 +64,11 @@ def draw():
     pygame.draw.rect(game_window, (255, 0, 0), 
         (paddle_x, paddle_y, paddle_width, paddle_height))
 
+    pygame.draw.ellipse(game_window, (0,255, 0), 
+         (ball_x, ball_y, ball_width, ball_height))
+
+
+
     pygame.display.update()
     return
 
@@ -87,6 +99,17 @@ playing = True
 is_jumping = False
 jump_count = 10
 
+# Ball
+
+ball_x = 100
+ball_y = 100
+ball_width = 25
+ball_height = 25
+
+ball_velocity = 2
+
+
+
 # Main Game Loop
 
 print(__doc__)
@@ -103,6 +126,7 @@ while playing:
     # Update Everything
 
     move_paddle()
+    move_ball()
 
     # Draw Everything
 
